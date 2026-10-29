@@ -1,3 +1,7 @@
+// Mission, vision and values with keyboard-accessible tabs.
+const approachTabs=[...document.querySelectorAll('.about-tabs [role="tab"]')];
+function activateApproachTab(tab){for(const item of approachTabs){const active=item===tab;item.setAttribute('aria-selected',String(active));item.tabIndex=active?0:-1;const panel=document.getElementById(item.getAttribute('aria-controls'));if(panel)panel.hidden=!active}}
+for(const [index,tab] of approachTabs.entries()){tab.addEventListener('click',()=>activateApproachTab(tab));tab.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(index+1)%approachTabs.length;else if(event.key==='ArrowLeft')next=(index+approachTabs.length-1)%approachTabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=approachTabs.length-1;else return;event.preventDefault();activateApproachTab(approachTabs[next]);approachTabs[next].focus()})}
 // Showcase filters are progressive enhancements: every concept is visible without JavaScript.
 const filters=[...document.querySelectorAll('[data-filter]')];
 for(const button of filters)button.addEventListener('click',()=>{const category=button.dataset.filter;for(const item of document.querySelectorAll('[data-category]'))item.hidden=category!=='all'&&item.dataset.category!==category;for(const filter of filters){const active=filter===button;filter.classList.toggle('active',active);filter.setAttribute('aria-pressed',String(active))}});
