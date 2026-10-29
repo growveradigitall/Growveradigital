@@ -2,7 +2,8 @@ import {renderAbout} from './about.mjs';
 import {uiIcon} from './icons.mjs';
 import {renderFooter} from './footer.mjs';
 import {renderHome,renderPackages} from './home.mjs';
-import {writeFileSync,mkdirSync} from 'node:fs';
+import {writeFileSync,mkdirSync,readFileSync,readdirSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 const email='growveradigitall@gmail.com';
 const services=[['01','Social media marketing','Turn the scroll into a connection.','A consistent brand voice, thoughtful content and a social presence that gives people a reason to follow.',['Social media strategy','Content calendars & creatives','Community engagement','Performance reporting'],'social'],['02','Video editing & Reels','Make your story move.','Turn raw footage and fresh ideas into engaging Reels, promotional videos and content made for your audience.',['Instagram Reels editing','Promotional videos','Captions & motion graphics','Editing & sound direction'],'video'],['03','Google & Meta ads','Make every click count.','Bring your offer to the right audience with focused campaigns, relevant landing pages and ongoing optimisation.',['Campaign strategy & setup','Audience & keyword planning','Ad creative & copy','Conversion tracking & optimisation'],'ads'],['04','Website design','A better first impression.','Fast, responsive websites that explain your business clearly and make the next step feel effortless.',['Responsive web design','Landing pages','User experience & content structure','Launch & ongoing improvements'],'web'],['05','Digital branding','Build a brand worth remembering.','Shape a clear identity and a consistent visual language across every digital touchpoint.',['Brand identity direction','Visual language','Brand positioning','Brand guidelines'],'brand'],['06','Graphic design','Give every idea a visual edge.','Distinctive social media creatives, campaign graphics and promotional designs that bring your brand to life.',['Social media creatives','Campaign graphics','Promotional design','Digital brand assets'],'design']];
 services.push(['07','Influencer & blogger marketing','Make the right connections.','Plan creator and blogger collaborations that introduce your brand to relevant audiences and support a consistent brand story.',['Creator & blogger research','Campaign collaboration planning','Creative briefing','Campaign review'],'influencer'],['08','Sales & business growth','Connect every part of the journey.','Bring content, collaborations and paid marketing together around a clear understanding of your audience and business goals.',['Customer journey planning','Lead generation strategy','Campaign coordination','Performance reviews'],'growth']);
@@ -29,3 +30,13 @@ for(const [file,title,body] of [['index.html','Digital Marketing & Creative Agen
 for(const [id,cat,t,d,paragraphs] of articles)writeFileSync(`insight-${id}.html`,shell(t,pageIntro(cat,t,d)+`<article class="wrap article-body"><a class="underlink" href="insights.html">← All insights</a>${paragraphs.map(p=>`<p>${p}</p>`).join('')}<h2>Start with your business.</h2><p>Need help applying this to your brand? <a href="contact.html">Let’s talk about your priorities.</a></p></article>`,'insights.html'));
 writeFileSync('404.html',shell('Page not found',pageIntro('404','A little off track.<br><em>Let’s head home.</em>','The page you’re looking for isn’t here.')+'<div class="wrap section"><a class="button" href="index.html">Back to home ←</a></div>','404.html'));
 console.log('Generated 13 static pages.');
+
+// Version local styles and scripts so visitors receive the latest assets after deployment.
+for (const page of readdirSync('.').filter(name => name.endsWith('.html'))) {
+  const html = readFileSync(page, 'utf8').replace(/(href|src)="([^"?]+\.(?:css|js))"/g, (match, attribute, asset) => {
+    if (/^https?:/.test(asset)) return match;
+    const version = createHash('sha256').update(readFileSync(asset)).digest('hex').slice(0, 10);
+    return attribute + '="' + asset + '?v=' + version + '"';
+  });
+  writeFileSync(page, html);
+}
