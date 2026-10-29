@@ -23,7 +23,7 @@ The globe animation pauses outside the viewport and when the tab is hidden. Redu
 
 ## Contact
 
-Business email supplied and confirmed by the owner: **growveradigitall@gamil.com**. This spelling is intentional. Contact form opens an email draft; it does not deliver or store enquiries itself. No phone number was provided, so there is no phone or WhatsApp button. Portfolio directions are labelled illustrative concepts; no invented clients, reviews or performance claims are used.
+Business email supplied and confirmed by the owner: **growveradigitall@gmail.com**. Contact forms open a prefilled Gmail draft, with an email-app fallback. There is no backend, form delivery provider, automatic submission or API key. The visitor must press Send in their email app. No phone number was provided, so there is no phone or WhatsApp button. Portfolio directions are labelled illustrative concepts; no invented clients, reviews or performance claims are used.
 
 ## GitHub
 
