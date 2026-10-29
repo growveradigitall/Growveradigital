@@ -15,3 +15,14 @@
 @media(max-width:520px){.studio-hero h1{font-size:clamp(25px,6.5vw,34px);line-height:1.25}.studio-hero-copy>p{font-size:15px}.studio-hero-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.studio-hero-actions>a{min-height:48px;padding:12px 10px;font-size:12px;gap:8px;width:100%}.studio-eyebrow{max-width:100%;font-size:clamp(8px,2.3vw,10px);letter-spacing:.7px;gap:8px;padding:10px 12px}.studio-scene{height:600px;margin-top:27px}.hero-character{height:370px;width:370px;max-width:110vw;bottom:150px}.scene-content{top:5px;left:12px;width:calc(50% - 24px);padding:12px}.scene-growth{top:0;right:12px;width:calc(50% - 24px);padding:12px}.scene-calendar,.scene-checklist{display:block;top:auto;bottom:15px;width:calc(50% - 24px);height:130px;padding:12px}.scene-calendar{left:12px;rotate:2deg}.scene-checklist{right:12px;rotate:-2deg}.scene-bars{height:52px;padding-top:10px;gap:4px}.scene-bars i{width:9px}.scene-card-heading{font-size:7px;letter-spacing:.35px}.scene-card-heading>span{font-size:5px}.scene-checklist ul{font-size:9px;gap:7px;line-height:1.6;margin-top:10px}.scene-card-footnote{font-size:7px;margin-top:7px}.scene-growth>strong{font-size:10px}.scene-halo{bottom:145px}.social-instagram{top:31%;left:8%}.social-linkedin{top:30%;right:8%}.social-facebook{top:55%;left:6%}.social-video{top:54%;right:6%}.studio-speciality{font-size:14px}.studio-typing-slot{white-space:nowrap}.scene-card{animation-name:scene-card-float-small}@keyframes scene-card-float-small{50%{translate:0 -6px}}}
 @media(max-width:360px){.studio-hero-actions{grid-template-columns:minmax(0,1fr)}.studio-hero-actions>a{font-size:13px}.studio-scene{height:565px}.hero-character{height:335px;width:335px;bottom:150px}.scene-content,.scene-growth,.scene-calendar,.scene-checklist{padding:10px}.scene-checklist ul{font-size:8px;gap:7px}.scene-card-heading{font-size:6px}.studio-eyebrow{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.studio-social,.scene-card{animation:none;will-change:auto}.studio-speciality .type-cursor{display:none}}
+
+/* Keep the floating home illustration inside tablet columns. */
+@media(min-width:761px) and (max-width:1100px){
+  .founder-phone-visual>.founder-phone-image{width:100%;max-width:100%;height:100%}
+}
+@media(max-width:520px){
+  .studio-speciality{min-height:50px;line-height:1.8}
+  .studio-typing-slot{white-space:normal}
+  .studio-hero-actions{grid-template-columns:minmax(0,1fr)}
+  .studio-hero-actions>a{font-size:14px;min-height:48px}
+}

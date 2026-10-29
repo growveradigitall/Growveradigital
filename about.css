@@ -60,3 +60,53 @@
   .about-reference .ab-collaborate a:hover .ab-cta-arrow,
   .about-reference .ab-collaborate a:focus-visible .ab-cta-arrow{transform:none}
 }
+
+/* About layouts for tablets and phones. */
+@media(max-width:900px){
+  .about-reference .ab-agency,
+  .about-reference .ab-who,
+  .about-reference .ab-founder,
+  .about-reference .ab-why,
+  .about-reference .ab-faq,
+  .about-reference .ab-section-head{grid-template-columns:minmax(0,1fr);gap:32px}
+  .about-reference .ab-agency>.ab-agency-rows{border-left:0;border-top:1px solid var(--ab-line);padding:30px 0 0}
+  .about-reference .ab-founder-card{max-width:480px;justify-self:center}
+  .about-reference .ab-faq-art{margin-top:0}
+  .about-reference .ab-purpose-art,.about-reference .ab-faq-art{width:100%;max-width:540px;justify-self:center}
+}
+@media(max-width:760px){
+  .about-reference .ab-section{padding-block:48px}
+  .about-reference .ab-hero{padding-block:45px}
+  .about-reference .ab-hero h1{font-size:clamp(48px,12vw,65px)}
+  .about-reference h2{font-size:clamp(29px,7.7vw,40px);line-height:1.2}
+  .about-reference .ab-agency-rows h3{font-size:18px;line-height:1.45}
+  .about-reference .ab-agency-rows p,.about-reference .ab-value p,.about-reference .ab-feature p{font-size:15px;line-height:1.8}
+  .about-reference .ab-agency-rows article{gap:16px}
+  .about-reference .ab-agency-rows article>.ui-icon{width:28px;height:28px}
+  .about-reference .ab-founder-card{width:93%;max-width:440px}
+  .about-reference .ab-founder-card h3{margin-top:18px}
+  .about-reference .ab-brand,.about-reference .ab-social{min-height:0;padding:26px}
+  .about-reference .ab-brand-art{position:relative;bottom:auto;right:auto;transform:rotate(-4deg);width:fit-content;max-width:100%;margin:35px auto 8px;padding:20px;gap:16px}
+  .about-reference .ab-brand-art>span:first-child{font-size:48px}
+  .about-reference .ab-brand-art>span:last-child{font-size:11px}
+  .about-reference .ab-feature h3{font-size:22px}
+  .about-reference .ab-purpose-art{min-height:420px;padding:28px}
+  .about-reference .ab-purpose-art>strong{font-size:clamp(60px,17vw,85px)}
+  .about-reference .ab-faq-art{min-height:320px;padding:26px}
+  .about-reference .ab-faq-art strong{font-size:72px}
+  .about-reference .ab-faq-art strong>span{font-size:55px;margin-left:12px}
+  .about-reference .ab-faq .faq{margin-top:24px}
+  .about-reference .faq details{padding:0 18px}
+  .about-reference .faq summary{gap:16px;font-size:15px;line-height:1.6;min-height:64px;padding-block:18px}
+  .about-reference .faq summary>span{flex:none}
+  .about-reference .faq details p{font-size:15px;line-height:1.8;margin-bottom:20px}
+  .about-reference .ab-collaborate{padding-block:44px}
+  .about-reference .ab-collaborate a{font-size:clamp(38px,10vw,70px)}
+}
+@media(max-width:360px){
+  .about-reference .ab-art-badge{padding:13px 15px;max-width:100%}
+  .about-reference .ab-art-badge span{font-size:10px}
+  .about-reference .ab-wide{padding:22px;gap:12px}
+  .about-reference .ab-wide>.ui-icon{width:27px;height:27px}
+  .about-reference .ab-editing-preview{gap:14px}
+}
